@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Stagiaires <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <img class="card-img-top" src="../../assets/iconStudent.png" alt="Card image cap" />
+    <div class="card-body">
+      <p>
+        <span
+          matBadge="{{ total }}"
+          class="btn btn-primary"
+          (click)="event()"
+          matBadgeSize="large"
+        >
+          Voir toutes les stagiaires
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Niveau <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <img class="card-img-top" src="../../assets/niveau.png" alt="Card image cap" />
+    <div class="card-body">
+      <p>
+        <span
+          matBadge="{{ niveauStudentsN }}"
+          (click)="event1()"
+          class="btn btn-primary"
+          matBadgeSize="large"
+        >
+          Voir toutes les niveaux
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Filieres <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <img class="card-img-top" src="../../assets/filieres.png" alt="Card image cap" />
+    <div class="card-body">
+      <p>
+        <span
+          matBadge="{{ totalF }}"
+          (click)="event2()"
+          class="btn btn-primary"
+          matBadgeSize="large"
+        >
+          Voir toutes les Filieres
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Utilisateurs <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <img class="card-img-top" src="../../assets/utilisateurs.png" alt="Card image cap" />
+    <div class="card-body">
+      <p>
+        <span
+          matBadge="{{ usersN }}"
+          (click)="event3()"
+          class="btn btn-primary"
+          matBadgeSize="large"
+        >
+          Voir toutes les utilisateurs
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Nouvelle carte pour les projets -->
+  <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Projets <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <img class="card-img-top" src="../../assets/projets.png" alt="Card image cap" />
+    <div class="card-body">
+      <p>
+        <span
+          matBadge="{{ projectN }}"
+          (click)="event4()"
+          class="btn btn-primary"
+          matBadgeSize="large"
+        >
+          Voir tous les projets
+        </span>
+      </p>
+    </div>
+  </div>
+
+    <!-- Nouvelle carte pour les projets -->
+    <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+      <h5 class="card-title">
+        Encadrants <span class="badge rounded-pill text-bg-primary ms-2"></span>
+      </h5>
+      <img class="card-img-top" src="../../assets/encadrants.png" alt="Card image cap" />
+      <div class="card-body">
+        <p>
+          <span
+            matBadge="{{ projectN }}"
+            (click)="event4()"
+            class="btn btn-primary"
+            matBadgeSize="large"
+          >
+            Voir tous les Encadrants
+          </span>
+        </p>
+      </div>
+    </div>
+  <!-- Graphique des projets actifs par mois -->
+  <!-- <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Projets Actifs <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <div class="card-body">
+      <canvas id="activeProjectsChart"></canvas>
+    </div>
+  </div> -->
+
+  <!-- Graphique du taux d'accomplissement -->
+  <!-- <div class="card" [@cardHover] style="width: 33rem" (click)="event()">
+    <h5 class="card-title">
+      Taux d'Accomplissement <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <div class="card-body">
+      <canvas id="completionRateChart"></canvas>
+    </div>
+  </div> -->
+</div>
