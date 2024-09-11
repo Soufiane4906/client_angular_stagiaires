@@ -1,81 +1,112 @@
-<div class="card">
-  <div class="card-header">Add stagiaire</div>
+<div class="card mt-4 shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5><mat-icon>person_add</mat-icon> Ajouter un stagiaire</h5>
+  </div>
 
   <div class="card-body">
     <form>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">id</label>
-        <input
-          type="number"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="le nom"
-          name="id"
-          [(ngModel)]="stagiaire.id"
-        />
-      </div>
 
-      <div class="form-group">
-        <label for="exampleFormControlInput1">nom</label>
+      <!-- Hidden ID Input -->
+      <input
+        type="number"
+        class="form-control"
+        name="id"
+        [(ngModel)]="stagiaire.id"
+        hidden
+      />
+
+      <!-- Nom -->
+      <div class="form-group mb-3">
+        <label for="nom"><mat-icon>account_circle</mat-icon> Nom du stagiaire</label>
         <input
           type="text"
           class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="le Prenom"
+          id="nom"
+          placeholder="Nom"
           name="nom"
           [(ngModel)]="stagiaire.nom"
           required
         />
       </div>
 
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Prenom</label>
+      <!-- Prenom -->
+      <div class="form-group mb-3">
+        <label for="prenom"><mat-icon>badge</mat-icon> Prénom du stagiaire</label>
         <input
           type="text"
           class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="le nom"
+          id="prenom"
+          placeholder="Prénom"
           name="prenom"
           [(ngModel)]="stagiaire.prenom"
         />
       </div>
 
-      <div class="form-group">
-        <label for="">Filere</label>
+      <!-- Email -->
+      <div class="form-group mb-3">
+        <label for="email"><mat-icon>email</mat-icon> Email du stagiaire</label>
         <input
-          type="number"
+          type="email"
           class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="le filiere"
-          [(ngModel)]="stagiaire.filiere.id_Filiere"
-          name="filiere.id_Filiere"
+          id="email"
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="stagiaire.email"
         />
       </div>
-      <div class="form-group">
-        <label for="">Image stagiare</label>
+
+      <!-- Téléphone -->
+      <div class="form-group mb-3">
+        <label for="telephone"><mat-icon>phone</mat-icon> Téléphone du stagiaire</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="telephone"
+          placeholder="Téléphone"
+          name="telephone"
+          [(ngModel)]="stagiaire.telephone"
+        />
+      </div>
+
+      <!-- Filiere -->
+      <div class="form-group mb-3">
+        <label for="filiere"><mat-icon>school</mat-icon> Détails Académiques</label>
+        <select
+          class="form-control"
+          id="filiere"
+          [(ngModel)]="stagiaire.filiere"
+          name="filiere"
+        >
+          <option value="" disabled selected hidden>
+            Sélectionnez une filière
+          </option>
+          <option *ngFor="let filiere of List" [ngValue]="filiere">
+            {{filiere.ecole}} : {{filiere.filiere}} : {{filiere.niveau}}
+          </option>
+        </select>
+      </div>
+
+      <!-- Image -->
+      <div class="form-group mb-3">
+        <label for="photo"><mat-icon>image</mat-icon> Image du stagiaire</label>
         <input
           [(ngModel)]="stagiaire.photo"
           name="photo"
           class="form-control"
           type="file"
-          id="myFile"
+          id="photo"
         />
       </div>
 
-      <div class="form-group">
-        <label for="file">File</label>
-        <input
-          id="file"
-          type="file"
-          [(ngModel)]="stagiaire.photo"
-          class="form-control"
-          (change)="($event)"
-        />
-      </div>
-
-      <button (click)="PostSta()" type="button" class="btn btn-light">
-        Enregistrer
+      <!-- Submit Button -->
+      <button (click)="PostSta()" type="button" class="btn btn-primary btn-block">
+        <mat-icon>save</mat-icon> Enregistrer
       </button>
+     <!-- Save to both database and Google Sheets -->
+     <button (click)="PostStaToGoogleSheet()" type="button" class="btn btn-success btn-block mt-2">
+      <mat-icon>cloud_upload</mat-icon> Enregistrer dans Google Sheets
+    </button>
+
     </form>
   </div>
 </div>

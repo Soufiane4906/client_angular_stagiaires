@@ -1,0 +1,86 @@
+<div class="card mt-4 shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5><mat-icon>person_add</mat-icon> Ajouter un encadrant</h5>
+  </div>
+
+  <div class="card-body">
+    <form>
+
+      <!-- Hidden ID Input -->
+      <input
+        type="number"
+        class="form-control"
+        name="id"
+        [(ngModel)]="encadrant.id"
+        hidden
+      />
+
+      <!-- Nom -->
+      <div class="form-group mb-3">
+        <label for="nom"><mat-icon>account_circle</mat-icon> Nom du encadrant</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Nom"
+          name="nom"
+          [(ngModel)]="encadrant.nom"
+          required
+        />
+      </div>
+
+      <!-- Prenom -->
+      <div class="form-group mb-3">
+        <label for="prenom"><mat-icon>badge</mat-icon> Prénom du encadrant</label>
+        <input
+          type="text"
+          class="form-control"
+          id="prenom"
+          placeholder="Prénom"
+          name="prenom"
+          [(ngModel)]="encadrant.prenom"
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group mb-3">
+        <label for="email"><mat-icon>email</mat-icon> Email du encadrant</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="encadrant.email"
+        />
+      </div>
+            <!-- telephone -->
+            <div class="form-group mb-3">
+              <label for="telephone"><mat-icon>phone</mat-icon> Téléphone du encadrant</label>
+              <input
+                type="text"
+                class="form-control"
+                id="telephone"
+                placeholder="Téléphone"
+                name="telephone"
+                [(ngModel)]="encadrant.telephone"
+              />
+            </div>
+
+
+
+
+
+
+      <!-- Submit Button -->
+      <button (click)="PostSta()" type="button" class="btn btn-primary btn-block">
+        <mat-icon>save</mat-icon> Enregistrer
+      </button>
+     <!-- Save to both database and Google Sheets -->
+     <!-- <button (click)="PostStaToGoogleSheet()" type="button" class="btn btn-success btn-block mt-2">
+      <mat-icon>cloud_upload</mat-icon> Enregistrer dans Google Sheets
+    </button> -->
+
+    </form>
+  </div>
+</div>

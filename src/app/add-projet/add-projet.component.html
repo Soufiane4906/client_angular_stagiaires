@@ -1,0 +1,118 @@
+<div class="card mt-4 shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5><mat-icon>add_circle</mat-icon> Ajouter un projet</h5>
+  </div>
+
+  <div class="card-body">
+    <form>
+
+      <!-- Titre -->
+      <div class="form-group mb-3">
+        <label for="titre"><mat-icon>title</mat-icon> Titre du projet</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titre"
+          placeholder="Titre"
+          name="titre"
+          [(ngModel)]="projet.titre"
+          required
+        />
+      </div>
+
+      <!-- Description -->
+      <div class="form-group mb-3">
+        <label for="description"><mat-icon>description</mat-icon> Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          placeholder="Description"
+          name="description"
+          [(ngModel)]="projet.description"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <!-- Date Debut -->
+      <div class="form-group mb-3">
+        <label for="dateDebut"><mat-icon>event</mat-icon> Date de Début</label>
+        <input
+          type="date"
+          class="form-control"
+          id="datedebut"
+          name="datedebut"
+          [(ngModel)]="projet.datedebut"
+        />
+      </div>
+
+      <!-- Date Fin -->
+      <div class="form-group mb-3">
+        <label for="dateFin"><mat-icon>event</mat-icon> Date de Fin</label>
+        <input
+          type="date"
+          class="form-control"
+          id="datefin"
+          name="datefin"
+          [(ngModel)]="projet.datefin"
+        />
+      </div>
+
+      <!-- État -->
+      <div class="form-group mb-3">
+        <label for="etat"><mat-icon>flag</mat-icon> État</label>
+        <input
+          type="text"
+          class="form-control"
+          id="etat"
+          placeholder="État"
+          name="etat"
+          [(ngModel)]="projet.etat"
+        />
+      </div>
+      <div class="form-group">
+        <label for="encadrant">Sélectionner un Encadrant</label>
+        <select
+          id="encadrant"
+          class="form-control"
+          [(ngModel)]="projet.encadrant"
+          name="encadrant"
+          required
+        >
+          <option *ngFor="let encadrant of encadrants" [value]="encadrant.id">
+            {{ encadrant.nom }} {{ encadrant.prenom }}
+          </option>
+        </select>
+      </div>
+ <!-- Stagiaires Selection -->
+ <div class="form-group mb-3">
+  <label for="stagiaires"><mat-icon>group</mat-icon> Sélectionner des Stagiaires</label>
+  <mat-form-field appearance="fill">
+    <mat-label>Stagiaires</mat-label>
+    <mat-select [(ngModel)]="projet.stagiaires" name="stagiaires" multiple>
+      <mat-option *ngFor="let stagiaire of stagiaires" [value]="stagiaire">
+        {{ stagiaire.nom }} {{ stagiaire.prenom }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- Sheet URL -->
+<div class="form-group mb-3">
+  <label for="sheetUrl"><mat-icon>link</mat-icon> Sheet URL</label>
+  <input
+    type="text"
+    class="form-control"
+    id="sheetUrl"
+    placeholder="https://example.com/sheet"
+    name="sheetUrl"
+    [(ngModel)]="projet.sheeturl"
+  />
+</div>
+
+<!-- Submit Button -->
+<button (click)="postProject()" type="button" class="btn btn-primary btn-block">
+  <mat-icon>save</mat-icon> Enregistrer le projet
+</button>
+</form>
+</div>
+</div>

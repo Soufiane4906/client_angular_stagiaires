@@ -27,11 +27,15 @@
         <option value="ID">Ingénieur d'état</option>
 
       </select>
-      <a
+      <!-- <a
         *ngIf="authservices.hasRole('ADMIN')"
         [routerLink]="['/filieres/AddFiliere']"
         class="link-primary"
-      >
+      > -->
+      <a
+      [routerLink]="['/filieres/AddFiliere']"
+      class="link-primary"
+    >
         <mat-icon
         class="svg"
           aria-hidden="false"
@@ -50,9 +54,10 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">id</th>
+            <!-- <th scope="col">id</th> -->
             <th scope="col">Nom de la filirere</th>
             <th scope="col">niveau</th>
+            <th scope="col">ecole</th>
             <th scope="col">actions</th>
           </tr>
         </thead>
@@ -64,14 +69,18 @@
                 | paginate: { itemsPerPage: parePage, currentPage: p }
             "
           >
-            <th>{{ data.id_Filiere }}</th>
+            <!-- <th>{{ data.id_Filiere }}</th> -->
             <td>{{ data.filiere }}</td>
             <td>{{ data.niveau }}</td>
+            <td>{{ data.ecole }}</td>
             <td class="btns">
-              <a
+              <!-- <a
                 *ngIf="authservices.hasRole('ADMIN')"
                 [routerLink]="['/filieres/edit/' + data.id_Filiere]"
-              >
+              > -->
+              <a
+              [routerLink]="['/filieres/edit/' + data.id_Filiere]"
+            >
                 <mat-icon
                   aria-hidden="false"
                   aria-label="Example home icon"
@@ -79,10 +88,13 @@
                 ></mat-icon>
               </a>
 
-              <a
+              <!-- <a
                 *ngIf="authservices.hasRole('ADMIN')"
                 (click)="DeleteFiliere(data.id_Filiere)"
-              >
+              > -->
+              <a
+              (click)="DeleteFiliere(data.id_Filiere)"
+            >
                 <mat-icon
                   aria-hidden="false"
                   aria-label="Example home icon"

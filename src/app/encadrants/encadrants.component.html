@@ -1,6 +1,6 @@
 <body>
   <div class="card">
-    <div class="card-header">Rechercher des stagiaires</div>
+    <div class="card-header">Rechercher des encadrants</div>
 
     <div class="card-body">
       <div class="form-group">
@@ -13,18 +13,18 @@
           placeholder="taper un mots-clés"
         />
       </div>
-      <a [routerLink]="['/stagiaire/AddStagiaire']" class="link-primary">
+      <a [routerLink]="['/encadrant/AddEncadrant']" class="link-primary">
         <mat-icon
           class="svg"
           aria-hidden="false"
           aria-label="Example home icon"
           fontIcon="add"
         ></mat-icon>
-        Nouveau stagiaire</a
+        Nouveau encadrant</a
       >
       <!-- <a
         *ngIf="authservices.hasRole('ADMIN')"
-        [routerLink]="['/stagiaire/AddStagiaire']"
+        [routerLink]="['/encadrant/AddEncadrant']"
         class="link-primary"
         >    <mat-icon
         class="svg"
@@ -32,13 +32,13 @@
           aria-label="Example home icon"
           fontIcon="add"
         ></mat-icon>
-        Nouveau stagiaire</a
+        Nouveau encadrant</a
       > -->
     </div>
   </div>
 
   <div class="card" *ngIf="List.length > 0">
-    <div class="card-header">List des stagiaires</div>
+    <div class="card-header">List des encadrants</div>
 
     <div class="card-body">
       <table class="table">
@@ -61,10 +61,10 @@
                 class="svg"
                 aria-hidden="false"
                 aria-label="Example home icon"
-                fontIcon="school"
+                fontIcon="email"
               >
               </mat-icon>
-              ecole
+              email
             </th>
             <th scope="col">
               <mat-icon
@@ -73,26 +73,10 @@
                 aria-label="Example home icon"
                 fontIcon="grade"
               ></mat-icon>
-              niveau
+              telephone
             </th>
-            <th scope="col">
-              <mat-icon
-                class="svg"
-                aria-hidden="false"
-                aria-label="Example home icon"
-                fontIcon="menu_book"
-              ></mat-icon>
-              filiere
-            </th>
-            <th scope="col">
-              <mat-icon
-                class="svg"
-                aria-hidden="false"
-                aria-label="Example home icon"
-                fontIcon="image"
-              ></mat-icon>
-              photo
-            </th>
+
+
             <th scope="col">
               <mat-icon
                 class="svg"
@@ -114,15 +98,11 @@
           >
             <!-- <td>{{ user.id }}</td> -->
             <td>{{ user.nom }} {{ user.prenom }}</td>
-            <td>{{ user.filiere.ecole }}</td>
-            <td>{{ user.filiere.niveau }}</td>
-            <td>{{ user.filiere.filiere }}</td>
-            <td>
-              <img *ngIf="user.photo" [src]="user.photo" alt="image" />
-              <span *ngIf="!user.photo" class="material-icons">account_circle</span>
-          </td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.telephone}}</td>
+         
                       <td class="btns">
-              <a [routerLink]="['/stagiaire/edit/' + user.id]">
+              <a [routerLink]="['/encadrant/edit/' + user.id]">
                 <mat-icon
                   class="svg"
                   aria-hidden="false"
@@ -133,7 +113,7 @@
 
               <!-- <a
                 *ngIf="authservices.hasRole('ADMIN')"
-                [routerLink]="['/stagiaire/edit/' + user.id]"
+                [routerLink]="['/encadrant/edit/' + user.id]"
               >
               <mat-icon
               class="svg"
@@ -142,10 +122,10 @@
                 fontIcon="update"
               ></mat-icon>
               </a> -->
-              <a (click)="DeleteStagiaire(user.id)">
+               <a (click)="DeleteEncadrant(user.id)">
                 <!-- <a
                 *ngIf="authservices.hasRole('ADMIN')"
-                (click)="DeleteStagiaire(user.id)"
+                (click)="DeleteEncadrant(user.id)"
               > -->
                 <mat-icon
                   class="svg"
@@ -166,7 +146,7 @@
   </div>
 
   <div *ngIf="List.length == 0" class="alert alert-secondary" role="alert">
-    Dosen't exist any stagiaire pour l'instant
+    Dosen't exist any encadrant pour l'instant
   </div>
 </body>
 

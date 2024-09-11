@@ -10,6 +10,8 @@ export const environment = {
   API_EDIT_Filiere : "http://localhost:8088/filiere",
   API_DELETE_STAGIAIRE : 'http://localhost:8088/stagiaire',
   API_DELETE_FILIERE : 'http://localhost:8088/filiere',
+  API_Encadrant  :'http://localhost:8088/encadrant',
+  API_Projet : 'http://localhost:8088/projet',
 
 
 

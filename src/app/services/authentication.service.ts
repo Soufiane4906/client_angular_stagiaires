@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { User } from '../models/user';
+import { User } from '../models/User';
 import { of } from 'rxjs';
 
 @Injectable({

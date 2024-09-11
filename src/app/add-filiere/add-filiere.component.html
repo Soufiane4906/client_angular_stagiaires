@@ -3,17 +3,7 @@
 
   <div class="card-body">
     <form>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">ID</label>
-        <input
-          type="number"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="le nom"
-          name="id_Filiere"
-          [(ngModel)]="filiere.id_Filiere"
-        />
-      </div>
+
 
       <div class="form-group">
         <label for="exampleFormControlInput1">Nom de la Filiere</label>
@@ -21,7 +11,7 @@
           type="text"
           class="form-control"
           id="exampleFormControlInput1"
-          placeholder="le Prenom"
+          placeholder="Nom de la filiere"
           name="filiere"
           [(ngModel)]="filiere.filiere"
         />
@@ -46,6 +36,43 @@
           <option value="Master">Master</option>
           <option value="ID">Ingénieur d'état</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label for="">Ecole</label>
+        <select
+        name="ecole"
+        [(ngModel)]="filiere.ecole"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option value="" disabled selected hidden>
+          Rechercher Les écoles
+        </option>
+        <option value="Emsi">EMSI (École Marocaine des Sciences de l’Ingénieur)</option>
+        <option value="Emi">EMI (École Mohammadia d'Ingénieurs)</option>
+        <option value="Ensias">ENSIAS (École Nationale Supérieure d'Informatique et d'Analyse des Systèmes)</option>
+        <option value="Ensa">ENSA (École Nationale des Sciences Appliquées)</option>
+        <option value="FST">FST (Faculté des Sciences et Techniques)</option>
+        <option value="INPT">INPT (Institut National des Postes et Télécommunications)</option>
+        <option value="ENCG">ENCG (École Nationale de Commerce et de Gestion)</option>
+        <option value="ENSAM">ENSAM (École Nationale Supérieure des Arts et Métiers)</option>
+        <option value="UCA">Université Cadi Ayyad</option>
+        <option value="UIR">UIR (Université Internationale de Rabat)</option>
+        <option value="UEMF">UEMF (Université Euromed de Fès)</option>
+        <option value="UM6P">UM6P (Université Mohammed VI Polytechnique)</option>
+        <option value="AUI">AUI (Al Akhawayn University)</option>
+        <option value="EST">EST (École Supérieure de Technologie)</option>
+        <option value="INSEA">INSEA (Institut National de Statistique et d'Économie Appliquée)</option>
+        <option value="ENS">ENS (École Normale Supérieure)</option>
+        <option value="ENSAT">ENSAT (École Nationale des Sciences Appliquées de Tétouan)</option>
+        <option value="FMP">Faculté de Médecine et de Pharmacie</option>
+        <option value="HEM">HEM (Institut des Hautes Études de Management)</option>
+        <option value="UIZ">Université Ibn Zohr</option>
+        <option value="UAE">Université Abdelmalek Essaâdi</option>
+        <option value="UAH">Université Al Akhawayn</option>
+        <option value="INPT">Institut National des Postes et Télécommunications</option>
+      </select>
+
       </div>
 
       <button (click)="PostMethod()" type="button" class="btn btn-light">

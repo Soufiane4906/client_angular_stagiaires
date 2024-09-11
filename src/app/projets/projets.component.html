@@ -1,0 +1,87 @@
+<div class="card">
+  <div class="card-header">Rechercher des projets</div>
+
+  <div class="card-body">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputSearch"
+        aria-describedby="searchHelp"
+        [(ngModel)]="searchText"
+        placeholder="Tapez un mot-clé"
+      />
+    </div>
+    <a [routerLink]="['/projet/AddProjet']" class="link-primary">
+      <mat-icon
+        class="svg"
+        aria-hidden="false"
+        aria-label="Ajouter un projet"
+        fontIcon="add"
+      ></mat-icon>
+      Nouveau projet
+    </a>
+  </div>
+</div>
+
+<div class="card" *ngIf="(staticProjects.length > 0 || apiProjects.length > 0)">
+  <div class="card-header">Liste des projets</div>
+
+  <div class="card-body">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Titre</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date Début</th>
+          <th scope="col">Date Fin</th>
+          <th scope="col">État</th>
+          <th scope="col">Sheet URL</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let projet of (staticProjects.concat(apiProjects)
+              | filter : searchText
+              | paginate : { itemsPerPage: pageSize, currentPage: currentPage })
+          "
+        >
+          <td>{{ projet.titre }}</td>
+          <td>{{ projet.description }}</td>
+          <td>{{ projet.datedebut }}</td>
+          <td>{{ projet.datefin }}</td>
+          <td>{{ projet.etat }}</td>
+          <td><a [href]="projet.sheeturl" target="_blank">{{ projet.sheeturl }}</a></td>
+          <td>
+            <a [routerLink]="['/projet/edit/' + projet.id]">
+              <mat-icon
+                class="svg"
+                aria-hidden="false"
+                aria-label="Modifier le projet"
+                fontIcon="update"
+              ></mat-icon>
+            </a>
+            <a (click)="deleteProjet(projet.id)">
+              <mat-icon
+                class="svg"
+                aria-hidden="false"
+                aria-label="Supprimer le projet"
+                fontIcon="delete"
+              ></mat-icon>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls
+      class="myPagination"
+      (pageChange)="currentPage = $event"
+    ></pagination-controls>
+  </div>
+</div>
+
+<div *ngIf="(staticProjects.length == 0 && apiProjects.length == 0)" class="alert alert-secondary" role="alert">
+  Aucun projet disponible pour l'instant
+</div>

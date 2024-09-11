@@ -10,7 +10,7 @@ export class AddStagiaireServiceService {
   constructor(private httpclient: HttpClient) {}
   API = environment.API_GET_POST;
   getStagiaire() {
-    return this.httpclient.get(this.API);
+    return this.httpclient.get<InterfaceStagiaire[]>(this.API);
   }
 
   PostStagiaire(stagiaire: any) {

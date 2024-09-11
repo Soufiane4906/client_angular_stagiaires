@@ -26,10 +26,16 @@ import { AdminTemplateComponent } from './admin-template/admin-template.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
+import { AddEncadrantComponent } from './add-encadrant/add-encadrant.component';
+import { EncadrantsComponent } from './encadrants/encadrants.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddProjetComponent } from './add-projet/add-projet.component';
+import { ProjetsComponent } from './projets/projets.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
-    
     AppComponent,
     HeaderComponent,
     StagiairesComponent,
@@ -44,10 +50,14 @@ import {MatIconModule} from '@angular/material/icon';
     FooterComponent,
     CardsComponent,
     AdminTemplateComponent,
-    
-    
-    
-    
+    AddEncadrantComponent,
+    EncadrantsComponent,
+    AddProjetComponent,
+    ProjetsComponent,
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -61,7 +71,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatDialogModule,
     ReactiveFormsModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
+    MatSelectModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

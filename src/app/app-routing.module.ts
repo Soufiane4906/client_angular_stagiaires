@@ -13,13 +13,21 @@ import { LoginComponent } from './login/login.component';
 import { CardsComponent } from './cards/cards.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { EncadrantsComponent } from './encadrants/encadrants.component';
+import { AddEncadrantComponent } from './add-encadrant/add-encadrant.component';
+import { AddProjetComponent } from './add-projet/add-projet.component';
+import { ProjetsComponent } from './projets/projets.component';
 // import { CardsComponent } from './cards/cards.component';
 
 const routes: Routes = [
 
   { path: 'stagiaire/edit/:id', component: EditerComponent  },
   { path: 'stagiaire/AddStagiaire', component: AddStagiaireComponent  },
+  { path: 'encadrant/AddEncadrant', component: AddEncadrantComponent  },
+
   { path: 'filieres/AddFiliere', component: AddFiliereComponent  },
+  { path: 'projet/AddProjet', component: AddProjetComponent  },
+
   { path: 'filieres/edit/:id', component: EditFiliereComponent  },
   // { path: 'filieres/edit', component: EditFiliereComponent  },
   { path: 'utilisateur', component: UtilisateurComponent  },
@@ -27,6 +35,10 @@ const routes: Routes = [
   { path: 'admin', component: AdminTemplateComponent,canActivate : [AuthenticationGuard], children :[
     { path: 'cards', component: CardsComponent  },
     { path: 'stagiaire', component: StagiairesComponent  },
+    { path: 'encadrant', component: EncadrantsComponent  },
+    { path: 'projet', component: ProjetsComponent  },
+
+
     { path: 'filieres', component: FilieresComponent},
   ] },
 

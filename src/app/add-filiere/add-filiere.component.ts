@@ -12,6 +12,7 @@ export class AddFiliereComponent implements OnInit {
     id: '',
     nom: '',
     niveau: '',
+    ecole: '',
   };
 
   List: any = [];

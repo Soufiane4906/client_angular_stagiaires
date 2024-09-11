@@ -1,5 +1,7 @@
 export interface InterfaceFiliere {
-    id: number;
+    id_Filiere: number;
     filiere: String;
     niveau: String;
+    ecole: String;
+
 }
